@@ -43,6 +43,19 @@ body {
   overflow-y: scroll;
   font-family: 'Source Sans Pro', sans-serif; }
 
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 
+                     0 0 20px rgba(255, 215, 0, 0.8), 
+                     0 0 30px rgba(255, 215, 0, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(255, 215, 0, 1), 
+                     0 0 25px rgba(255, 215, 0, 1), 
+                     0 0 35px rgba(255, 215, 0, 1);
+    }
+}
+
 a {
   text-decoration: none;
   color: inherit; }
@@ -225,7 +238,7 @@ textarea {
 .home-hero {
   color: #000000;
   text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
-  background: url(https://tainted-purity.rip/gold.gif) no-repeat center center;
+  background: url(https://media3.giphy.com/media/UNHplVba2fweBfkLHv/giphy.gif?cid=6c09b952v21femeji4xncdagexeowo2gwqmdop4z3m8scs0h&ep=v1_gifs_search&rid=giphy.gif&ct=g) no-repeat center center;
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -576,17 +589,22 @@ textarea {
     display: flex;
     align-items: center;
     cursor: pointer;
-    color: #333;
-    transition: color .3s; }
+    color: #ffffff;
+    transition: color .3s;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 
+                 0 0 20px rgba(255, 215, 0, 0.8), 
+                 0 0 30px rgba(255, 215, 0, 0.8);
+    animation: glow 1.5s infinite alternate;
+}
     .header__logo-container:hover {
-      color: #0062b9; }
+      color: #b9a400; }
   .header__logo-img-cont {
     width: 5rem;
     height: 5rem;
     border-radius: 50px;
     overflow: hidden;
     margin-right: 1.5rem;
-    background: #0062b9; }
+    background: #b9a400; }
     @media only screen and (max-width: 56.25em) {
       .header__logo-img-cont {
         width: 4.5rem;
@@ -618,7 +636,7 @@ textarea {
     font-weight: 700;
     transition: color .3s; }
     .header__link:hover {
-      color: #0062b9; }
+      color: #b9a400; }
     @media only screen and (max-width: 56.25em) {
       .header__link {
         padding: 3rem 1.8rem;
@@ -657,7 +675,7 @@ textarea {
     text-decoration: none;
     padding: 2.5rem 3rem;
     font-size: 1.6rem;
-    color: #333;
+    color: #808080;
     text-align: right;
     border-bottom: 1px solid #eee;
     font-weight: 700;
@@ -665,7 +683,7 @@ textarea {
     letter-spacing: 2px;
     transition: color .3s; }
     .header__sm-menu-link a:hover {
-      color: #0062b9; }
+      color: #b99600; }
   .header__sm-menu-link:first-child a {
     border-top: 1px solid #eee; }
   .header__sm-menu-link-last {
