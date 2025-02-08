@@ -754,6 +754,9 @@ textarea {
     font-weight: 600;
     color: #777; }
 
+
+
+
 .mouse {
   width: 25px;
   height: 40px;
@@ -780,7 +783,7 @@ textarea {
     opacity: 0;
     top: 27px; } }
 
-@-webkit-keyframes wheel { 
+@-webkit-keyframes wheel {
   to {
     opacity: 0;
     top: 27px; } }
