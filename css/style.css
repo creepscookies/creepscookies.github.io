@@ -780,7 +780,7 @@ textarea {
     opacity: 0;
     top: 27px; } }
 
-@-webkit-keyframes wheel {
+@-webkit-keyframes wheel { 
   to {
     opacity: 0;
     top: 27px; } }
