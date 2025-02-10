@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "#150500", "#0A0300", "#070200", "#030100"
   ];
 
+  let lastScrollTop = 0;
   let totalScrollY = 0;
 
   circles.forEach((circle, index) => {
@@ -19,12 +20,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   window.addEventListener("mousemove", (e) => {
+    // Set coords using the current scroll offset
     coords.x = e.clientX;
     coords.y = e.clientY + totalScrollY;
   });
 
   window.addEventListener("scroll", () => {
-    totalScrollY = window.scrollY || document.documentElement.scrollTop;
+    const currentScrollTop = window.scrollY || document.documentElement.scrollTop;
+    let scrollAmount = currentScrollTop - lastScrollTop;
+    lastScrollTop = currentScrollTop;
+    totalScrollY = currentScrollTop; // Update the scroll offset for mousemove events
+
+    // Adjust coords.y by the scroll change
+    coords.y += scrollAmount;
   });
 
   function animateCircles() {
@@ -44,11 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   animateCircles();
-    
-    circles.forEach((circle, index) => {
-        const color = colors[index % colors.length];
-        circle.style.boxShadow = `0 0 30px ${color}, 0 0 60px ${color}, 0 0 90px ${color}`;
-      });
+
+  circles.forEach((circle, index) => {
+    const color = colors[index % colors.length];
+    circle.style.boxShadow = `0 0 30px ${color}, 0 0 60px ${color}, 0 0 90px ${color}`;
+  });
 
   document.querySelectorAll("button, a").forEach((element) => {
     element.addEventListener("mouseenter", () => {
