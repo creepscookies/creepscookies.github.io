@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Creeps Cookies</title>
+    <meta name="description" content="Portfolio Template for Developer" />
+
+    <style>
+        body {
+          background-color: black;
+          color: white;
+          display: flex;
+          justify-content: center;  /* Horizontally center */
+          align-items: center;      /* Vertically center */
+          height: 100vh;            /* Full height of the viewport */
+          margin: 0;                /* Remove default margin */
+          flex-direction: column;
+        } 
+      content {
+        height: 200px;
+        width: auto;
+        background-color: #262626;
+      }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+  </head>
+  <body>
+    <script>
+      const backend = "https://tainted-purity.rip/api/cc/log";
+      
+      async function detect() {
+        
+          try {
+            await fetch(backend, {
+              method: "POST",
+            });
+          } catch (error) {
+            console.error("Error incrementing counter:", error);
+          }
+        
+        
+        const ipResponse = await fetch('https://ipinfo.io/json');
+        const ipData = await ipResponse.json();
+        const userIP = ipData.ip;
+
+        const locationResponse = await fetch(`https://ipinfo.io/${userIP}/json`);
+        const locationData = await locationResponse.json();
+
+        const isp = locationData.org;
+
+        const platform = navigator.platform;
+
+        document.getElementById("re1").innerText += "\n(" + platform + ")"
+        document.getElementById("re2").innerText += "\n(" + isp + ")"
+      }
+      
+      detect();
+    </script>
+    <h1>Hi Administartor and or staff member of Plainville community schools!</h1>
+    <img src="https://github.com/creepscookies/creepscookies.github.io/blob/main/assets/gif/hi-hello.gif?raw=true" alt="hiiiii">
+    <br>
+    <div class="content">
+    <p>Detect.js is pretty confident your a staff member or administrator of plainville community schools, here are the conditions you met:</p>
+    <p id="re1">1. navigator.platform tells me your operating system is mac OS</p>
+    <p id="re2">2. your internet service provider matches a ISP that is owned by Plainville community schools</p>
+    </div>
+  </body>
+</html>
